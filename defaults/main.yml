@@ -4,7 +4,9 @@ nrpe_conf_file: '/etc/nagios/nrpe.cfg'
 
 nrpe_log_facility: 'daemon'
 
-nrpe_pid_file: '/var/run/nrpe/nrpe.pid'
+nrpe_pid_path: '/var/run/nrpe/'
+
+nrpe_pid_file: 'nrpe.pid'
 
 nrpe_server_port: '5666'
 

@@ -8,9 +8,17 @@
   template:
     src: 'nrpe.cfg.j2'
     dest: '/etc/nagios/nrpe.cfg'
-    owner: 'nrpe'
-    group: 'nrpe'
+    owner: "{{ nrpe_user }}"
+    group: "{{ nrpe_group }}"
     mode: '0644'
+
+- name: create nrpe_pid path
+  file:
+    path: "{{ nrpe_pid_path }}"
+    state: directory
+    owner: "{{ nrpe_user }}"
+    group: "{{ nrpe_group }}"
+    mode: '0775'
 
 - name: configure nrpe service
   template:
@@ -19,9 +27,10 @@
     owner: 'root'
     group: 'root'
     mode: '0644'
-
+  notify: restarting nrpe service
+  
 - name: enable nrpe service and assure it is started
   service:
     name: nrpe
     enabled: yes
-    state: restarted
+    state: started

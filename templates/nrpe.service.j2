@@ -16,6 +16,6 @@ Group={{ nrpe_group }}
 EnvironmentFile=/etc/sysconfig/nrpe
 ExecStart=/usr/sbin/nrpe -c {{ nrpe_conf_file }} -f $NRPE_SSL_OPT
 ExecReload=/bin/kill -HUP $MAINPID
-ExecStopPost=/bin/rm -f {{ nrpe_pid_file }}
-#PIDFile={{ nrpe_pid_file }}
-
+ExecStopPost=/bin/rm -f {{ nrpe_pid_path }}{{ nrpe_pid_file }}
+#PIDFile={{ nrpe_pid_path }}{{ nrpe_pid_file }}
+#
