@@ -1,0 +1,6 @@
+---
+- name: restarting nrpe service
+  systemd:
+    name: nrpe
+    state: restarted
+    daemon_reload: yes
