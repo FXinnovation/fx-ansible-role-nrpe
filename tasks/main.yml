@@ -1,0 +1,27 @@
+---
+- name: install nrpe
+  yum:
+    name: nrpe
+    state: present
+
+- name: configure nrpe
+  template:
+    src: 'nrpe.cfg.j2'
+    dest: '/etc/nagios/nrpe.cfg'
+    owner: 'nrpe'
+    group: 'nrpe'
+    mode: '0644'
+
+- name: configure nrpe service
+  template:
+    src: 'nrpe.service.j2'
+    dest: '/usr/lib/systemd/system/nrpe.service'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+
+- name: enable nrpe service and assure it is started
+  service:
+    name: nrpe
+    enabled: yes
+    state: restarted

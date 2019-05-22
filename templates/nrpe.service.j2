@@ -1,0 +1,21 @@
+[Unit]
+Description=Nagios Remote Program Executor
+Documentation=http://www.nagios.org/documentation
+Conflicts=nrpe.socket
+Requires=network-online.target
+After=var-run.mount nss-lookup.target network.target local-fs.target time-sync.target
+Before=getty@tty1.service xdm.service
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=simple
+User={{ nrpe_user }}
+Group={{ nrpe_group }}
+EnvironmentFile=/etc/sysconfig/nrpe
+ExecStart=/usr/sbin/nrpe -c {{ nrpe_conf_file }} -f $NRPE_SSL_OPT
+ExecReload=/bin/kill -HUP $MAINPID
+ExecStopPost=/bin/rm -f {{ nrpe_pid_file }}
+#PIDFile={{ nrpe_pid_file }}
+
