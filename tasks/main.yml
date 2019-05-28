@@ -29,7 +29,7 @@
     mode: '0644'
   notify: restarting nrpe service
 
-- name: enable nrpe service and assure it is started
+- name: enable nrpe service and ensure it is started
   service:
     name: nrpe
     enabled: yes

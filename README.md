@@ -1,8 +1,6 @@
 Ansible Role: Nagios Remote Plugin Executor (NRPE)
 ==================================================
 
-An Ansible role that installs and configures [NRPE][].
-
 Table of Contents
 -----------------
 
@@ -26,35 +24,6 @@ Requirements
 
 Role Variables
 --------------
-
-These are all variables and their default values:
-
-```yml
-nrpe_log_facility: 'daemon'
-
-nrpe_pid_file: '/var/run/nrpe/nrpe.pid'
-
-nrpe_server_port: '5666'
-
-nrpe_user: 'nrpe'
-
-nrpe_group: 'nrpe'
-
-nrpe_allowed_hosts:
-  - '127.0.0.1'
-  - '::1'
-
-nrpe_dont_blame: '0'
-
-nrpe_allow_bash_command_substitution: '0'
-
-nrpe_debug: '0'
-
-nrpe_command_timeout: '60'
-
-nrpe_connection_timeout: '300'
-
-```
 
 Dependencies
 ------------
