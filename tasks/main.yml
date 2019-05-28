@@ -23,7 +23,7 @@
 - name: configure nrpe service
   template:
     src: 'nrpe.service.j2'
-    dest: '/usr/lib/systemd/system/nrpe.service'
+    dest: '/etc/systemd/system/nrpe.service'
     owner: 'root'
     group: 'root'
     mode: '0644'
