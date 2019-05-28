@@ -1,6 +1,6 @@
 galaxy_info:
   author: FXInnovation Inc
-  description: Put EC2 Tags in facts
+  description: Deploy Nrpe (Nagios Remote Plugin Executor) agent
   company: FXInnovation Inc
 
   # If the issue tracker for your role is not on github, uncomment the
