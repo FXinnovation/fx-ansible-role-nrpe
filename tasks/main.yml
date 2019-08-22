@@ -16,6 +16,7 @@
     owner: "{{ nrpe_user }}"
     group: "{{ nrpe_group }}"
     mode: '0644'
+  notify: 'restarting nrpe service'
 
 - name: 'create nrpe_pid path'
   file:
@@ -29,4 +30,4 @@
   service:
     name: 'nrpe'
     enabled: 'yes'
-    state: 'restarted'
+    state: 'started'
