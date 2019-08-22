@@ -3,7 +3,6 @@
   yum:
     name: "{{ nrpe_dependency_package }}"
     state: 'present'
-  when: 'nrpe_dependency_package != default([])'
 
 - name: 'install nrpe'
   yum:
