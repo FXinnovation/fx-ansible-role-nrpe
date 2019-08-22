@@ -1,10 +1,16 @@
 ---
-- name: install nrpe
+- name: 'install dependency'
   yum:
-    name: nrpe
-    state: present
+    name: "{{ nrpe_dependency_package }}"
+    state: 'present'
+  when: 'nrpe_dependency_package != default([])'
 
-- name: configure nrpe
+- name: 'install nrpe'
+  yum:
+    name: 'nrpe'
+    state: 'present'
+
+- name: 'configure nrpe'
   template:
     src: 'nrpe.cfg.j2'
     dest: '/etc/nagios/nrpe.cfg'
@@ -12,25 +18,16 @@
     group: "{{ nrpe_group }}"
     mode: '0644'
 
-- name: create nrpe_pid path
+- name: 'create nrpe_pid path'
   file:
     path: "{{ nrpe_pid_path }}"
-    state: directory
+    state: 'directory'
     owner: "{{ nrpe_user }}"
     group: "{{ nrpe_group }}"
     mode: '0775'
 
-- name: configure nrpe service
-  template:
-    src: 'nrpe.service.j2'
-    dest: '/etc/systemd/system/nrpe.service'
-    owner: 'root'
-    group: 'root'
-    mode: '0644'
-  notify: restarting nrpe service
-
-- name: enable nrpe service and ensure it is started
+- name: 'enable nrpe service and ensure it is started'
   service:
-    name: nrpe
-    enabled: yes
-    state: started
+    name: 'nrpe'
+    enabled: 'yes'
+    state: 'started'
