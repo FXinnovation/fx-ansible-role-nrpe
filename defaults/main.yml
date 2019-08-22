@@ -15,3 +15,4 @@ nrpe_allow_bash_command_substitution: '0'
 nrpe_debug: '0'
 nrpe_command_timeout: '60'
 nrpe_connection_timeout: '300'
+nrpe_dependency_package: []
