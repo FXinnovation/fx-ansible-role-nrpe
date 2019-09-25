@@ -26,6 +26,20 @@
     group: "{{ nrpe_group }}"
     mode: '0775'
 
+- name: 'Set user for the service'
+  lineinfile:
+    path: "{{ systemd_file_path }}"
+    regexpr: '^User=.*' 
+    line: "User={{ nrpe_user }}"
+  notify: 'restarting nrpe service'
+
+- name: 'Set group for the service'
+  lineinfile:
+    path: "{{ systemd_file_path }}"
+    regexpr: '^Group=.*' 
+    line: "Group={{ nrpe_user }}"
+  notify: 'restarting nrpe service'
+
 - name: 'enable nrpe service and ensure it is started'
   service:
     name: 'nrpe'
