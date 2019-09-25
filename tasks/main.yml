@@ -29,14 +29,14 @@
 - name: 'Set user for the service'
   lineinfile:
     path: "{{ systemd_file_path }}"
-    regexpr: '^User=.*' 
+    regexp: '^User=.*' 
     line: "User={{ nrpe_user }}"
   notify: 'restarting nrpe service'
 
 - name: 'Set group for the service'
   lineinfile:
     path: "{{ systemd_file_path }}"
-    regexpr: '^Group=.*' 
+    regexp: '^Group=.*' 
     line: "Group={{ nrpe_user }}"
   notify: 'restarting nrpe service'
 
