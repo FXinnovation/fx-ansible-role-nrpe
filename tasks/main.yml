@@ -43,6 +43,28 @@
     mode: '0644'
   notify: 'restarting nrpe service'
 
+- name: 'Add entry for pid file'
+  template: 
+    src: 'systemd_tmpfile.conf.j2'
+    dest: "{{ nrpe_systemd_tmpfile_directory }}/{{ nrpe_systemd_tmpfile_file }}"
+    owner: 'root'
+    group: 'root'
+    mode: '0644' 
+
+- name: 'Stop nrpe'
+  systemd: 
+    name: 'nrpe'
+    state: 'stop'
+    daemon_reload: 'yes'
+  changed_when: false
+  ignore_errors: true
+
+- name: 'Create tmpfiles for pid'
+  shell: 'systemd-tmpfiles --create'
+  changed_when: false
+  ignore_errors: true
+  notify: 'restarting nrpe service'
+
 - name: 'enable nrpe service and ensure it is started'
   service:
     name: 'nrpe'
