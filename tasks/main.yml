@@ -42,9 +42,7 @@
     owner: 'root'
     group: 'root'
     mode: '0644'
-  notify:
-    - 'Create tmpfiles'
-    - 'restarting nrpe service'
+  notify: 'Create tmpfiles'
 
 - name: 'enable nrpe service and ensure it is started'
   service:
