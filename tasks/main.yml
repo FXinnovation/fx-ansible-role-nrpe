@@ -26,6 +26,23 @@
     group: "{{ nrpe_group }}"
     mode: '0775'
 
+- name: 'Create overrite systemd unit configuration'
+  file:
+    path: "{{ nrpe_systemd_config_directory }}/nrpe.service.d"
+    state: 'directory'
+    owner: 'root'
+    group: 'root'
+    mode: '0755'
+
+- name: 'Overwrite systemd unit nrpe configuration'
+  template:
+    src: 'systemd_config.j2'
+    dest: "{{ nrpe_systemd_config_directory }}/nrpe.service.d/{{ nrpe_systemd_config_file }}"
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  notify: 'restarting nrpe service'
+
 - name: 'enable nrpe service and ensure it is started'
   service:
     name: 'nrpe'
