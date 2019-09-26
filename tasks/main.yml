@@ -41,6 +41,7 @@
     owner: 'root'
     group: 'root'
     mode: '0644'
+  notify: 'restarting nrpe service'
 
 - name: 'enable nrpe service and ensure it is started'
   service:
