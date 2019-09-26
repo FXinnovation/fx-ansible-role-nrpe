@@ -54,7 +54,7 @@
 - name: 'Stop nrpe'
   systemd: 
     name: 'nrpe'
-    state: 'stop'
+    state: 'stopped'
     daemon_reload: 'yes'
   changed_when: false
   ignore_errors: true
