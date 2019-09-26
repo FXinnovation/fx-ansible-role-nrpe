@@ -6,4 +6,4 @@
     daemon_reload: 'yes'
 
 - name: 'Create tmpfiles'
-  shell: 'systemd-tmpfiles --create'
+  shell: 'systemd-tmpfiles --create' # noqa 305
