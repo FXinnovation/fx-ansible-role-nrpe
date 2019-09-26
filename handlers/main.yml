@@ -1,10 +1,10 @@
 ---
+- name: 'Create tmpfiles'
+  shell: 'systemd-tmpfiles --create' # noqa 305
+  notify: 'restarting nrpe service'
+
 - name: 'restarting nrpe service'
   systemd:
     name: 'nrpe'
     state: 'restarted'
     daemon_reload: 'yes'
-
-- name: 'Create tmpfiles'
-  shell: 'systemd-tmpfiles --create' # noqa 305
-  notify: 'restarting nrpe service'
