@@ -1,6 +1,9 @@
 ---
-- name: restarting nrpe service
+- name: 'restarting nrpe service'
   systemd:
-    name: nrpe
-    state: restarted
-    daemon_reload: yes
+    name: 'nrpe'
+    state: 'restarted'
+    daemon_reload: 'yes'
+
+- name: 'Create tmpfiles'
+  shell: 'systemd-tmpfiles --create'
