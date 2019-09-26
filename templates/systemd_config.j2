@@ -1,0 +1,7 @@
+[Unit]
+PartOf=nrpe.service
+ReloadPropagatedFrom=nrpe.service
+
+[Service]
+User=n{{ nrpe_user }}
+Group={{ nrpe_group }}
