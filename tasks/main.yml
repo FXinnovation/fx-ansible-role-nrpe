@@ -18,14 +18,6 @@
     mode: '0644'
   notify: 'restarting nrpe service'
 
-- name: 'create nrpe_pid path'
-  file:
-    path: "{{ nrpe_pid_path }}"
-    state: 'directory'
-    owner: "{{ nrpe_user }}"
-    group: "{{ nrpe_group }}"
-    mode: '0775'
-
 - name: 'Create overrite systemd unit configuration'
   file:
     path: "{{ nrpe_systemd_config_directory }}/nrpe.service.d"
