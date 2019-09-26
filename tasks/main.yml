@@ -36,13 +36,13 @@
   notify: 'restarting nrpe service'
 
 - name: 'Add entry for pid file'
-  template: 
+  template:
     src: 'systemd_tmpfile.conf.j2'
     dest: "{{ nrpe_systemd_tmpfile_directory }}/{{ nrpe_systemd_tmpfile_file }}"
     owner: 'root'
     group: 'root'
     mode: '0644'
-  notify: 
+  notify:
     - 'Create tmpfiles'
     - 'restarting nrpe service'
 
