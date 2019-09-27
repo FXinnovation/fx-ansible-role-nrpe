@@ -1,6 +1,6 @@
 ---
 - name: 'Create tmpfiles'
-  shell: 'systemd-tmpfiles --create' # noqa 305
+  shell: "systemd-tmpfiles --create --prefix={{ nrpe_pid_path }}" # noqa 305
   notify: 'restarting nrpe service'
 
 - name: 'restarting nrpe service'
