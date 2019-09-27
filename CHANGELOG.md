@@ -1,10 +1,8 @@
 #CHANGELOG
 
-## 0.0.5
+## 0.1.0
 
 * Fix idempotency issue when setting up an other user
-
-WARNING : Some default values have been changed. 
 
 ## 0.0.4
 
