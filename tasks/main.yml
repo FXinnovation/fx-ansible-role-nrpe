@@ -18,14 +18,6 @@
     mode: '0644'
   notify: 'restarting nrpe service'
 
-- name: 'create nrpe_pid path'
-  file:
-    path: "{{ nrpe_pid_path }}"
-    state: 'directory'
-    owner: "{{ nrpe_user }}"
-    group: "{{ nrpe_group }}"
-    mode: '0775'
-
 - name: 'Create overrite systemd unit configuration'
   file:
     path: "{{ nrpe_systemd_config_directory }}/nrpe.service.d"
@@ -42,6 +34,15 @@
     group: 'root'
     mode: '0644'
   notify: 'restarting nrpe service'
+
+- name: 'Add entry for pid file'
+  template:
+    src: 'systemd_tmpfile.conf.j2'
+    dest: "{{ nrpe_systemd_tmpfile_directory }}/{{ nrpe_systemd_tmpfile_file }}"
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  notify: 'Create tmpfiles'
 
 - name: 'enable nrpe service and ensure it is started'
   service:
