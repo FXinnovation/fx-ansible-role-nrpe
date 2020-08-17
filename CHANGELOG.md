@@ -2,7 +2,7 @@
 
 ## 0.1.2
 
-* Fix kitchen
+* test: Fix kitchen
 
 ## 0.1.1
 
