@@ -1,5 +1,9 @@
 #CHANGELOG
 
+## 0.1.2
+
+* Fix kitchen
+
 ## 0.1.1
 
 * bump version geerlingguy.repo-epel
@@ -11,4 +15,3 @@
 ## 0.0.4
 
 * Fix issue to set nrpe running user/group
-
