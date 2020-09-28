@@ -2,7 +2,7 @@
 
 ## 1.1.3
 
-* fix: when dependancies in meta it download the last version
+* fix: when dependancies in meta without verion it download the last version
 
 ## 0.1.2
 
