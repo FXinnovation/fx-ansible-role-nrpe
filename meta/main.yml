@@ -63,4 +63,4 @@ dependencies:
   - src: "https://github.com/geerlingguy/ansible-role-repo-epel.git"
     scm: "git"
     version: "1.2.4"
-    when: ansible_distribution == 'RedHat'
+    when: ansible_os_family == 'RedHat'
