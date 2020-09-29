@@ -60,4 +60,7 @@ galaxy_info:
     #       Maximum 20 tags per role.
 
 dependencies:
-  - {role: "geerlingguy.repo-epel", when: ansible_os_family == 'RedHat'}
+  - src: "https://github.com/geerlingguy/ansible-role-repo-epel.git"
+    scm: "git"
+    version: "1.2.4"
+    when: ansible_os_family == 'RedHat'
