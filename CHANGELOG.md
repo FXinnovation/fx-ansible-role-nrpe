@@ -1,5 +1,9 @@
 #CHANGELOG
 
+## 0.1.4
+
+* chore: bump pre-commit hooks
+
 ## 0.1.3
 
 * fix: when dependancies in meta without verion it download the last version
