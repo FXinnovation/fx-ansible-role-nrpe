@@ -3,6 +3,7 @@
 ## 0.1.4
 
 * fix: use pip3 to install ansible
+* chore: increase size of kitchen RHEL instance (15Gb)
 * chore: bump kitchen ansible to `2.9.17`
 * chore: bump pre-commit hooks
 
