@@ -1,5 +1,12 @@
 #CHANGELOG
 
+## 0.1.4
+
+* fix: use pip3 to install ansible
+* chore: increase size of kitchen RHEL instance (15Gb)
+* chore: bump kitchen ansible to `2.9.17`
+* chore: bump pre-commit hooks
+
 ## 0.1.3
 
 * fix: when dependancies in meta without verion it download the last version
